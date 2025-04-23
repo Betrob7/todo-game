@@ -1,0 +1,446 @@
+:root {
+  --color-header: #1e293b;         /* mörkblågrå (header) */
+  --color-bg: #0f172a;             /* mörk bakgrund */
+  --color-panel-left: #1e40af;     /* djup blå */
+  --color-panel-right: #15803d;    /* djup grön */
+  --color-card: #1f2937;           /* mörkgrå för cards */
+  --color-card-text: #f8fafc;      /* nästan vit text */
+  --color-desc: #94a3b8;           /* ljusgrå text */
+  --color-button: #f97316;         /* orange */
+  --color-button-hover: #ea580c;
+  --color-point: #facc15;          /* gul poäng */
+  --color-success: #22c55e;        /* smaragdgrön */
+}
+
+
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-card-text);
+  font-family: sans-serif;
+}
+
+
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--color-header);
+  color: white;
+}
+
+.header__nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.header__points {
+  display: flex;
+  gap: 1.5rem;
+  font-weight: bold;
+}
+
+.header__points-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+/* HomePage */
+.home-page {
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+.home-page__intro {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: var(--color-card);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  color: var(--color-card-text);
+}
+
+.home-page__intro h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.home-page__intro p {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Todo page */
+.todo-page {
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+.todo-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.todo-page__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-card);
+  color: var(--color-card-text);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+}
+
+.todo-page__item.todo-done {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.todo-page__toggle-button {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--color-success);
+  transition: transform 0.2s;
+}
+
+.todo-page__toggle-button:hover {
+  transform: scale(1.2);
+}
+
+.todo-page__input-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.todo-page__input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background-color: #1f2937; /* matchar card */
+  border: 2px solid transparent;
+  color: var(--color-card-text);
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.todo-page__input::placeholder {
+  color: #94a3b8; /* grå hinttext */
+}
+
+.todo-page__input:focus {
+  outline: none;
+  border-color: var(--color-button);
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.3);
+}
+
+.todo-page__button {
+  background-color: var(--color-button);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.todo-page__button:hover {
+  background-color: var(--color-button-hover);
+}
+
+
+.todo-page__content {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.todo-page__left,
+.todo-page__right {
+  flex: 1;
+  min-width: 300px;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.todo-page__left {
+  background-color: var(--color-panel-left);
+}
+
+.todo-page__right {
+  background-color: var(--color-panel-right);
+}
+
+.todo-page__toggle-button {
+  background: none;
+  border: none;
+  padding: 0rem 0.25rem;
+  cursor: pointer;
+  align-items: center;
+}
+
+.icon-pop {
+  transition: transform 0.2s;
+}
+
+.todo-page__toggle-button:active .icon-pop {
+  transform: scale(1.2) rotate(-5deg);
+}
+
+.lock-icon {
+  font-size: 1.8rem;
+  transition: color 0.2s ease;
+}
+
+.lock-icon.lock-icon--unlocked {
+  color: #16a34a !important;
+}
+
+.lock-icon.lock-icon--locked {
+  color: #dc2626 !important;
+}
+
+/* Shop */
+.shop-page {
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+.shop-page__card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.shop-page__card {
+  background: var(--color-card);
+  border: 2px solid var(--color-point);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: left;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+  color: var(--color-card-text);
+}
+
+.shop-page__card:hover {
+  transform: translateY(-5px);
+}
+
+.shop-page__card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.shop-page__desc {
+  font-size: 0.95rem;
+  color: var(--color-desc);
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.shop-page__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop-page__footer span {
+  font-weight: bold;
+  color: var(--color-point);
+}
+
+.shop-page__footer button {
+  background-color: var(--color-button);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.shop-page__footer button:hover {
+  background-color: var(--color-button-hover);
+}
+
+.shop-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.shop-modal {
+  background: var(--color-card);
+  color: var(--color-card-text);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: scaleIn 0.3s ease;
+}
+
+.shop-modal h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.shop-modal button {
+  margin-top: 1rem;
+  background-color: var(--color-button);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.shop-modal button:hover {
+  background-color: var(--color-button-hover);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0 }
+  to { transform: scale(1); opacity: 1 }
+}
+
+.shop-history {
+  list-style: none;
+  margin-top: 1rem;
+  padding: 0;
+  color: var(--color-desc);
+  font-size: 0.95rem;
+}
+
+.shop-history li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.shop-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.shop-modal {
+  background: var(--color-card);
+  color: var(--color-card-text);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: scaleIn 0.3s ease;
+}
+
+.shop-modal button {
+  margin-top: 1rem;
+  background-color: var(--color-button);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.shop-modal button:hover {
+  background-color: var(--color-button-hover);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0 }
+  to { transform: scale(1); opacity: 1 }
+}
+
+.shop-history__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.shop-history__item button {
+  background: none;
+  border: none;
+  color: var(--color-desc);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.shop-history__item button:hover {
+  color: #ef4444;
+}
+
+
+
