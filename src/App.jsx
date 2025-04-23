@@ -6,7 +6,7 @@ import ShopPage from "./pages/ShopPage";
 function App() {
   return (
     <div className="app">
-      <BrowserRouter>
+      <BrowserRouter basename="/todo-game">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/todopage" element={<TodoPage />} />
